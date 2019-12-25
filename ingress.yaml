@@ -17,3 +17,19 @@ spec:
         backend:
           serviceName: traefik-ingress-controller-dashboard-service
           servicePort: 8080
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: traefik-web-ui
+ namespace: traefik
+spec:
+ rules:
+ - host: traefik-ui.minikube
+   http:
+     paths:
+     - path: /
+       backend:
+         serviceName: traefik-ingress-controller-dashboard-service
+         servicePort: 8080
